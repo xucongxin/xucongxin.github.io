@@ -1,37 +1,31 @@
-## Welcome to GitHub Pages
+## React组件生命周期
 
-You can use the [editor on GitHub](https://github.com/xucongxin/xucongxin.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+React组件的生命周期一般来说是分为两个部分的，第一部分是初次渲染，第二部分是状态更新导致的再次渲染。在这里我们只说Class组件，不说fun组件
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 首次渲染
 
-### Markdown
+一般来说一个class组件里面有如下方法，react组件首次渲染经历了如下过程。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
-Syntax highlighted code block
+// 定义一个TodoList的React组件，通过继承React.Component来实现
+class TodoList extends React.Component {
+  ...
+}
+```
+# 构造函数constructor
+在生命周期开始的时候，调用构造函数进行初始化工作，在创建组件的时候只调用一次。
+```markdown
+constructor(props) {
+   //绑定this
+    super(props);
+    //设置初始状态
+    this.state = {
+    date: new Date()
+    };
+    //为函数绑定this
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/xucongxin/xucongxin.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
